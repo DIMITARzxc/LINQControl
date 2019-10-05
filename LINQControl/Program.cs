@@ -23,19 +23,24 @@ namespace LINQControl
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("First Task:");
             Console.ResetColor();
+
             Console.WriteLine(string.Join("\n", books.OfType<Book>()
                 .Where(b => b.Name.Contains("LINQ") && (DateTime.IsLeapYear(b.Year)))
                 .Select(b => b.Name)));
+
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Second task:");
             Console.ResetColor();
+
             string str = "Complete SQL Mastery";
             Console.WriteLine($"String: {str}");
             var counter = str.GroupBy(c => c).Count();
             Console.WriteLine($"{counter} find letters");
+
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Third task");
             Console.ResetColor();
+
             int[] arr = new int[] { 21, 23, 14, 12, 32, 33 };
             Console.WriteLine("Given array:");
             for (int i = 0; i < arr.Length; i++)
@@ -48,12 +53,17 @@ Sorted:");
             Console.WriteLine(string.Join(", ", arr
                 .OrderBy(tmp => tmp / 10).ThenByDescending(tmp => tmp % 10)
                 ));
+
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Fourth task");
             Console.ResetColor();
+
             Console.WriteLine(string.Join("\n", books.OfType<Book>()
                .GroupBy(a => a.Author)
                .Select(value => $"{value.Key}: \t{value.Count()}")));
+
+
+
             Console.ReadLine();
         }
     }
